@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AppLayout } from './components/AppLayout';
-import { BodyViewer3D } from './components/BodyViewer3D';
+import { BodyViewer2D } from './components/BodyViewer2D';
 import { SymptomList } from './components/SymptomList';
 import { SymptomFormModal } from './components/SymptomFormModal';
 import { ReportPanel } from './components/ReportPanel';
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <AppLayout 
-        viewerNode={<BodyViewer3D />} 
+        viewerNode={<BodyViewer2D />} 
         panelNode={
           showReport ? (
             <ReportPanel onBack={() => setShowReport(false)} />

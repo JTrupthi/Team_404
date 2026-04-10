@@ -1,6 +1,7 @@
 import { useState, useEffect, type FC } from 'react';
 import { useSymptomStore, type SymptomType } from '../store/useSymptomStore';
 import { X } from 'lucide-react';
+import { formatRegionName } from '../utils/colors';
 
 const SYMPTOM_TYPES: SymptomType[] = [
   'Pain', 'Burning', 'Stiffness', 'Numbness', 'Swelling', 'Itching', 'Tingling', 'Weakness', 'Other'
@@ -45,7 +46,7 @@ export const SymptomFormModal: FC = () => {
       <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden transform transition-all scale-100 opacity-100">
         <div className="bg-slate-50 border-b border-slate-100 flex justify-between items-center p-4 relative">
           <h2 className="text-lg font-bold text-slate-800">
-            Log Symptom: <span className="text-blue-600">{selectedRegion}</span>
+            Log Symptom: <span className="text-blue-600">{formatRegionName(selectedRegion as string)}</span>
           </h2>
           <button 
             onClick={() => setSelectedRegion(null)}

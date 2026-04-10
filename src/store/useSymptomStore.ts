@@ -1,16 +1,8 @@
 import { create } from 'zustand';
 
-export type BodyRegion = 
-  | 'Head' 
-  | 'Neck' 
-  | 'Chest' 
-  | 'Abdomen' 
-  | 'Upper Back' 
-  | 'Lower Back' 
-  | 'Left Arm' 
-  | 'Right Arm' 
-  | 'Left Leg' 
-  | 'Right Leg';
+import type { Muscle } from 'react-body-highlighter';
+
+export type BodyRegion = Muscle;
 
 export type SymptomType = 
   | 'Pain' 
@@ -45,9 +37,9 @@ interface SymptomState {
 }
 
 const demoData: Omit<Symptom, 'id' | 'createdAt'>[] = [
-  { region: 'Lower Back', type: 'Stiffness', severity: 6, duration: '2 weeks', notes: 'Worse in the morning' },
-  { region: 'Right Leg', type: 'Numbness', severity: 4, duration: '3 days', notes: 'Radiates down to the knee' },
-  { region: 'Head', type: 'Pain', severity: 8, duration: '5 hours', notes: 'Throbbing headache' }
+  { region: 'lower-back', type: 'Stiffness', severity: 6, duration: '2 weeks', notes: 'Worse in the morning' },
+  { region: 'quadriceps', type: 'Numbness', severity: 4, duration: '3 days', notes: 'Radiates down to the knee' },
+  { region: 'head', type: 'Pain', severity: 8, duration: '5 hours', notes: 'Throbbing headache' }
 ];
 
 export const useSymptomStore = create<SymptomState>((set) => ({

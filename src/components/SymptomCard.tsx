@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Trash2, AlertCircle } from 'lucide-react';
 import { useSymptomStore, type Symptom } from '../store/useSymptomStore';
-import { getSeverityColor, getSeverityLabel } from '../utils/colors';
+import { getSeverityColor, getSeverityLabel, formatRegionName } from '../utils/colors';
 
 interface Props {
   symptom: Symptom;
@@ -30,7 +30,7 @@ export const SymptomCard: FC<Props> = ({ symptom }) => {
           <AlertCircle size={20} />
         </div>
         <div>
-          <h4 className="font-bold text-slate-800 leading-tight">{symptom.region}</h4>
+          <h4 className="font-bold text-slate-800 leading-tight">{formatRegionName(symptom.region)}</h4>
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
             {symptom.type}
           </span>

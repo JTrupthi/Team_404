@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSymptomStore } from '../store/useSymptomStore';
 import { jsPDF } from 'jspdf';
 import { FileDown, Download, Copy, ArrowLeft, Check, Share2 } from 'lucide-react';
+import { formatRegionName } from '../utils/colors';
 
 interface Props {
   onBack: () => void;
@@ -23,7 +24,7 @@ export const ReportPanel: React.FC<Props> = ({ onBack }) => {
     text += `Symptoms Logged (${symptoms.length}):\n`;
     
     symptoms.forEach((s, index) => {
-      text += `\n${index + 1}. ${s.region} - ${s.type}\n`;
+      text += `\n${index + 1}. ${formatRegionName(s.region)} - ${s.type}\n`;
       text += `   Severity: ${s.severity}/10 | Duration: ${s.duration}\n`;
       if (s.notes) text += `   Notes: ${s.notes}\n`;
     });

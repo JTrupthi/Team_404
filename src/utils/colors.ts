@@ -9,3 +9,7 @@ export const getSeverityLabel = (severity: number): string => {
   if (severity <= 6) return 'Moderate';
   return 'Severe';
 };
+
+export const formatRegionName = (region: string): string => {
+  return region.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
